@@ -9,12 +9,12 @@ public class StockQuotePublisher {
 	private static Logger stockLogger = 		
 			Logger.getLogger(StockQuotePublisher.class.getName());
 	
-	static Filter expensiveStocks = (logRecord) -> {
+	private static Filter expensiveStocks = (logRecord) -> {
 	   	Object[] parameters = logRecord.getParameters();
 	   	
-	   	double price = ((Double)parameters[0]).doubleValue();
+	   	double price = (Double) parameters[0];
 	    
-	   	return 	( price > 60) ? true: false;	   	
+	   	return (price > 60);
 	};
 	
 	public static void main(String args[]){
