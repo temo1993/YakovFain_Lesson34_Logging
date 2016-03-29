@@ -18,12 +18,10 @@ public class RotatingFilesLogger {
 			helloFileHandler = new FileHandler("logs/rotating.log", 1000, 3, true);
 			helloLogger.addHandler(helloFileHandler);
 			helloFileHandler.setLevel(Level.WARNING);
-		} catch (SecurityException se) {
+		} catch (SecurityException | IOException se) {
 			System.out.println(se.getMessage());
-		} catch (IOException ioe) {
-			System.out.println(ioe.getMessage());
 		}
-		
+
 		helloLogger.fine("Hello from the fine world");
 		helloLogger.info("Trying to divide by zero");
 		try{
